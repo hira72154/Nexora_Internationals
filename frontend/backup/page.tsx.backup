@@ -1,0 +1,311 @@
+
+"use client";
+
+import { useEffect, useState } from "react";
+
+const services = [
+  {
+    no: "01",
+    category: "INTELLIGENT SYSTEMS",
+    title: "AI & Automation",
+    description:
+      "Make everyday operations smarter with intelligent automation and purpose-built AI solutions.",
+    symbol: "✳",
+  },
+  {
+    no: "02",
+    category: "DIGITAL EXPERIENCES",
+    title: "Web Development",
+    description:
+      "Digital platforms engineered for performance, usability, scalability and lasting impact.",
+    symbol: "↗",
+  },
+  {
+    no: "03",
+    category: "BUSINESS EVOLUTION",
+    title: "Digital Solutions",
+    description:
+      "Connect your business goals with modern technology and streamlined digital workflows.",
+    symbol: "◈",
+  },
+];
+
+const capabilities = [
+  "Artificial Intelligence",
+  "Business Automation",
+  "Web Applications",
+  "Digital Transformation",
+];
+
+export default function Home() {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [scrollY, setScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => setScrollY(window.scrollY);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  return (
+    <main className="site-shell">
+      <div className="announcement">
+        <span className="announcement-dot" />
+        TECHNOLOGY FOR A NEW ERA OF BUSINESS
+        <span className="announcement-right">NEXORA TECHNOLOGY — EST. FOR WHAT&apos;S NEXT</span>
+      </div>
+
+      <header className={`site-header ${scrollY > 30 ? "header-scrolled" : ""}`}>
+        <a href="#home" className="logo-wrap" aria-label="Nexora home">
+          <img
+            src="/images/nexora-logo.jpg"
+            alt="Nexora Technology"
+            className="brand-logo"
+          />
+        </a>
+
+        <button
+          className="mobile-menu-button"
+          onClick={() => setMenuOpen(!menuOpen)}
+          aria-label="Toggle navigation"
+          aria-expanded={menuOpen}
+        >
+          {menuOpen ? "✕" : "☰"}
+        </button>
+
+        <nav className={`main-nav ${menuOpen ? "nav-open" : ""}`}>
+          <a href="#home" onClick={() => setMenuOpen(false)}>Home</a>
+          <a href="#about" onClick={() => setMenuOpen(false)}>About</a>
+          <a href="#services" onClick={() => setMenuOpen(false)}>Services</a>
+          <a href="#approach" onClick={() => setMenuOpen(false)}>Our Approach</a>
+          <a href="#contact" onClick={() => setMenuOpen(false)} className="mobile-contact">
+            Contact Us ↗
+          </a>
+        </nav>
+
+        <a href="#contact" className="header-cta">
+          Let&apos;s Talk <span>↗</span>
+        </a>
+      </header>
+
+      <section className="hero-section" id="home">
+        <div className="hero-grain" />
+
+        <div className="hero-copy">
+          <div className="eyebrow">
+            <span className="eyebrow-rule" />
+            INNOVATION. ENGINEERING. GROWTH.
+          </div>
+
+          <h1>
+            The future
+            <br />
+            is built <span>differently.</span>
+          </h1>
+
+          <p className="hero-lead">
+            We turn ambitious ideas into meaningful digital experiences.
+            Thoughtful technology, intelligent solutions and engineering
+            that moves your business forward.
+          </p>
+
+          <div className="hero-buttons">
+            <a href="#services" className="button-primary">
+              Discover What We Do <span>↗</span>
+            </a>
+            <a href="#about" className="button-quiet">
+              Get to know us <span>→</span>
+            </a>
+          </div>
+
+          <div className="hero-proof">
+            <div className="proof-mark">N.</div>
+            <div>
+              <strong>THE NEXT ERA</strong>
+              <span>OF GROWTH &amp; INNOVATION</span>
+            </div>
+          </div>
+        </div>
+
+        <div className="hero-art" aria-label="Abstract three dimensional Nexora artwork">
+          <div className="art-top-label">
+            <span>FIG. 001</span>
+            <span>FORM / FUNCTION / FUTURE</span>
+          </div>
+
+          <div className="art-stage">
+            <div className="stage-shadow" />
+            <div className="stage-ring stage-ring-back" />
+            <div className="stage-ring stage-ring-front" />
+
+            <div className="sculpture">
+              <div className="sculpture-side" />
+              <div className="sculpture-face">
+                <div className="sculpture-cutout" />
+                <div className="sculpture-highlight" />
+              </div>
+              <div className="sculpture-top" />
+            </div>
+
+            <div className="art-orb orb-large" />
+            <div className="art-orb orb-small" />
+            <div className="art-disc" />
+            <div className="art-crosshair crosshair-one">+</div>
+            <div className="art-crosshair crosshair-two">+</div>
+            <div className="art-axis axis-one" />
+            <div className="art-axis axis-two" />
+          </div>
+
+          <div className="art-bottom-label">
+            <span>AN EXPRESSION OF PROGRESS</span>
+            <span className="art-coordinates">31° / 74° / N</span>
+          </div>
+        </div>
+
+        <div className="hero-footer-line">
+          <span>SCROLL TO EXPLORE <span className="scroll-arrow">↓</span></span>
+          <span>DESIGNED AROUND WHAT&apos;S POSSIBLE</span>
+          <span>01 — 04</span>
+        </div>
+      </section>
+
+      <section className="capability-strip">
+        <div className="capability-heading">OUR FOCUS</div>
+        {capabilities.map((item, index) => (
+          <div className="capability-item" key={item}>
+            <span className="capability-index">0{index + 1}</span>
+            {item}
+          </div>
+        ))}
+      </section>
+
+      <section className="about-section section-pad" id="about">
+        <div className="about-aside">
+          <span className="section-index">01 / THE NEXORA PERSPECTIVE</span>
+          <span className="aside-decoration">N.</span>
+        </div>
+
+        <div className="about-main">
+          <div className="eyebrow">
+            <span className="eyebrow-rule" />
+            TECHNOLOGY WITH PURPOSE
+          </div>
+
+          <h2>
+            Not just keeping up
+            <br />
+            with change. <span>Creating it.</span>
+          </h2>
+
+          <div className="about-bottom">
+            <p>
+              Technology is most powerful when it solves real problems.
+              At Nexora, we bring together strategic thinking, modern
+              engineering and a practical understanding of business to
+              create solutions that make a difference.
+            </p>
+            <a href="#contact" className="underlined-link">
+              Let&apos;s explore possibilities <span>↗</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section className="services-section section-pad" id="services">
+        <div className="services-heading">
+          <div>
+            <span className="section-index">02 / WHAT WE DO</span>
+            <h2>
+              Ideas into
+              <br />
+              <span>intelligent action.</span>
+            </h2>
+          </div>
+          <p>
+            We build purposeful digital solutions, bringing clarity,
+            capability and confidence to the way businesses work.
+          </p>
+        </div>
+
+        <div className="services-list">
+          {services.map((service) => (
+            <article className="service-row" key={service.no}>
+              <span className="service-no">{service.no}</span>
+              <div className="service-symbol">{service.symbol}</div>
+              <div className="service-content">
+                <span className="service-category">{service.category}</span>
+                <h3>{service.title}</h3>
+                <p>{service.description}</p>
+              </div>
+              <a href="#contact" className="service-link" aria-label={`Discuss ${service.title}`}>
+                ↗
+              </a>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="statement-section" id="approach">
+        <div className="statement-top">
+          <span className="section-index">03 / HOW WE THINK</span>
+          <span className="statement-caption">OUR PHILOSOPHY</span>
+        </div>
+        <div className="statement-content">
+          <div className="statement-mark">“</div>
+          <h2>
+            Progress doesn&apos;t happen
+            <br />
+            by accident. It happens
+            <br />
+            <span>by design.</span>
+          </h2>
+          <p>
+            Every great digital solution begins with understanding.
+            We focus on the right problems, the right technology and
+            the right outcomes.
+          </p>
+        </div>
+        <div className="statement-bottom">
+          <span>NEXORA TECHNOLOGY</span>
+          <span>THOUGHTFUL BY DESIGN. BUILT FOR TOMORROW.</span>
+        </div>
+      </section>
+
+      <section className="contact-section section-pad" id="contact">
+        <div className="contact-decoration">
+          <div className="contact-orbit" />
+          <div className="contact-orbit orbit-inner" />
+          <span>N</span>
+        </div>
+
+        <div className="contact-copy">
+          <span className="section-index">04 / THE NEXT STEP</span>
+          <h2>
+            Have a vision?
+            <br />
+            <span>Let&apos;s build it.</span>
+          </h2>
+          <p>
+            Tell us what you&apos;re working towards. Let&apos;s explore
+            how the right technology can help you get there.
+          </p>
+          <a href="mailto:info@nexoratechnology.com" className="button-primary">
+            Start a Conversation <span>↗</span>
+          </a>
+        </div>
+      </section>
+
+      <footer className="site-footer">
+        <div className="footer-top">
+          <a href="#home" className="footer-brand">NEXORA <span>TECHNOLOGY</span></a>
+          <span>THE NEXT ERA OF GROWTH &amp; INNOVATION</span>
+          <a href="#home" className="back-top">BACK TO TOP ↑</a>
+        </div>
+        <div className="footer-bottom">
+          <span>© {new Date().getFullYear()} NEXORA TECHNOLOGY. ALL RIGHTS RESERVED.</span>
+          <span>ENGINEERED FOR WHAT&apos;S NEXT.</span>
+        </div>
+      </footer>
+    </main>
+  );
+}
